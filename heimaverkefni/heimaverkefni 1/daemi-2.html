@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+</head>
+<body>
+
+	<div id="app">
+		
+		<form action="https://www.google.is/search" method="GET">
+		<input v-model="input" name="q" type="hidden">
+		<input v-model='input' type="">
+		<button type="submit">submit</button>
+		</form>
+
+	</div>
+	<style type="text/css">
+		button{
+		background-color:#1e90ff;
+		color:white;
+		border:none;
+		padding:7px;
+	}
+
+
+	input{
+		text-decoration: none;
+		border:none;
+		border-bottom:solid;
+		border-bottom-height:2px;
+		border-bottom-color:#D3D3D3; 
+	}
+	
+	input:focus{
+		text-decoration: none;
+		border:none;
+		outline:none;
+		border-bottom:solid;
+		border-bottom-height:2px;
+		border-bottom-color:#FF6347;
+
+	}
+	</style>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		
+	var app = new Vue({
+		el: "#app",
+		data: {
+			input:""
+		}
+	})
+
+	</script>
+
+</body>
+</html>

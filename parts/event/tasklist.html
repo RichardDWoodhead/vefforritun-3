@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		<input v-model="task">
+		<button @click="appendtask">bla</button>
+		<ul>
+			<li v-for="ctask in tasks" v-text="ctask"></li>
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		
+	var app = new Vue({
+		el: "#app",
+		data: {
+			task:"",
+			tasks:[]
+
+		},
+		methods:{
+			appendtask : function(){
+				this.tasks.push(this.task)
+				this.task =""
+			}
+		}
+	})
+
+	</script>
+
+</body>
+</html>
