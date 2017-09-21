@@ -14,7 +14,8 @@
 
 	<div id="app">
 		
-	<a v-for="link in anchors" v-bind:href="link" v-text="link"></a>
+	<a  v-on:click.prevent="handleclick(clink)" v-for="clink in anchors" v-bind:href="clink.link" v-text="clink.name"></a>
+	<p>virkur link er: {{cname}}</p>
 
 	</div>
 	<script src="https://unpkg.com/vue"></script>
@@ -24,14 +25,19 @@
 		el: "#app",
 		data: {
 			anchors:[
-				"https://www.google.is",
-				"http://www.visir.is",
-				"http://www.fotbolti.is",
-				"http://www.facebook.com"
-			]
+				{name:"google", link:"https://www.google.is"},
+				{name:"visir", link:"http://www.visir.is"},
+				{name:"fotbolti", link:"http://www.fotbolti.is"},
+				{name:"facebook", link:"http://www.facebook.com"}
+			],
+			cname : ""
 		},
 		methods:{
 
+			handleclick:function(clink){
+				this.cname = clink.name
+				console.log(this.cname)
+			}
 		}
 	})
 
