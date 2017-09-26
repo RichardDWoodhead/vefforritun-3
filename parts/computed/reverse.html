@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app">
+		
+	<p v-text="reversedMessage"></p>
+
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		
+	var app = new Vue({
+		el: "#app",
+		data: {
+			message:"King Guddi"
+		},
+		methods:{
+			reverse: function(text){
+				return text.split("").reverse().join("")
+			}
+		},
+		computed:{
+			reversedMessage: reverse(this.message)
+		}
+	})
+
+	</script>
+
+</body>
+</html>
