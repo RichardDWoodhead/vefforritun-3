@@ -141,6 +141,8 @@
   </li>
   
 </ul>
+  <pre>{{ $data }}</pre>
+
 	</div>
 	<script src="https://unpkg.com/vue"></script>
 	<script type="text/javascript">
@@ -149,7 +151,7 @@
 		el: "#app",
 		data: {
 			newTask:"",
-			taskList:[]
+			taskList:[],
 		},
 		methods:{
 			addTask: function() {
@@ -183,7 +185,16 @@
 			    this.taskList[i].checked = targetValue;
 			  }
 			}
-		}
+		},
+		computed: {
+			areAllSelected: function() {
+				//Check if every checked property returns true and if there is at least one to-do item
+    			return this.taskList.every(function(task) {
+      				return task.checked;
+    		}) && this.taskList.length > 0;
+  		},
+}
+
 	})
 
 	</script>
