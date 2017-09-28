@@ -132,10 +132,11 @@
   
 <ul class="list">
   
-  <li v-for="task in taskList" v-bind:class="{done: task.checked}">
+  <li v-for="task in taskList" v-bind:class="{done: task.checked}" @click="changeTask(task)">
    
     <input type="checkbox" class="checkbox" v-model="task.checked" >
-    <label for="checkbox">{{ task.text }}</label>
+    <input class="text-input" v-model="task.text" v-show="task.isChanging" v-on:keyup.enter="setNewTask(task)">
+    <label for="checkbox"  v-show="task.isNotChanging">{{ task.text }}</label>
     <button class="delete" v-on:click="removeTask(task)">X</button>
   
   </li>
@@ -152,6 +153,7 @@
 		data: {
 			newTask:"",
 			taskList:[],
+			changedTask:"",
 		},
 		methods:{
 			addTask: function() {
@@ -162,7 +164,9 @@
 			    	//Push an object containing the task to the taskList array
 			        this.taskList.push({
 			        	text: task,
-			        	checked: false
+			        	checked: false,
+						isChanging:false,
+						isNotChanging:true
 			        });
 			        //Reset newTask to an empty string so the input field is cleared
 			        this.newTask = "";
@@ -178,12 +182,21 @@
 				this.taskList = [];
 			},
 			selectAll: function(task) {
-			  //targetValue is set to the opposite of areAllSelected
-			  var targetValue = this.areAllSelected ? false : true;
-			  //we use a for loop to set the checked state of all items to the target value
-			  for (var i = 0; i < this.taskList.length; i++) {
-			    this.taskList[i].checked = targetValue;
-			  }
+				//targetValue is set to the opposite of areAllSelected
+				var targetValue = this.areAllSelected ? false : true;
+				//we use a for loop to set the checked state of all items to the target value
+				for (var i = 0; i < this.taskList.length; i++) {
+					this.taskList[i].checked = targetValue;
+				}
+			},
+			changeTask:function(task){
+				task.isNotChanging = false
+				task.isChanging=true
+			},
+			setNewTask:function(task){
+				task.isNotChanging = true
+				task.isChanging = false
+
 			}
 		},
 		computed: {
@@ -193,7 +206,7 @@
       				return task.checked;
     		}) && this.taskList.length > 0;
   		},
-}
+		}
 
 	})
 
