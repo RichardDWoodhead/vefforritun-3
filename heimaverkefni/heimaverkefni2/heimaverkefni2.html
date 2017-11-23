@@ -132,14 +132,7 @@
   
 <ul class="list">
   
-  <li v-for="task in taskList" v-bind:class="{done: task.checked}" @click="changeTask(task)">
-   
-    <input type="checkbox" class="checkbox" v-model="task.checked" >
-    <input class="text-input" v-model="task.text" v-show="task.isChanging" v-on:keyup.enter="setNewTask(task)">
-    <label for="checkbox"  v-show="task.isNotChanging">{{ task.text }}</label>
-    <button class="delete" v-on:click="removeTask(task)">X</button>
-  
-  </li>
+<Task></Task>
   
 </ul>
   <pre>{{ $data }}</pre>
@@ -147,13 +140,29 @@
 	</div>
 	<script src="https://unpkg.com/vue"></script>
 	<script type="text/javascript">
+
+	Vue.component("Task",{
+
+		template:`
+			<ul>
+	  		<li v-for="task in taskList" v-bind:class="{done: task.checked}" @click="changeTask(task)">
+	   
+		    	<input type="checkbox" class="checkbox" v-model="task.checked" >
+		    	<input class="text-input" v-model="task.text" v-show="task.isChanging" v-on:keyup.enter="setNewTask(task)">
+		    	<label for="checkbox"  v-show="task.isNotChanging">{{ task.text }}</label>
+		   		<button class="delete" v-on:click="removeTask(task)">X</button>
+		  
+	  		</li>
+	  		</ul>`
+
+
+	});
 		
 	var app = new Vue({
 		el: "#app",
 		data: {
 			newTask:"",
-			taskList:[],
-			changedTask:"",
+			taskList:[]
 		},
 		methods:{
 			addTask: function() {

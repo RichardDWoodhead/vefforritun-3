@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<div id="app"></div>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		
+	Vue.component("my-component",{
+
+		template:`<div>
+			My custom component
+		</div>`
+
+	});
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+
+		}
+	})
+
+	</script>
+
+</body>
+</html>
