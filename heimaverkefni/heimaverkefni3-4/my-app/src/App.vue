@@ -1,16 +1,16 @@
 <template>
   <div id="app">
   <div class="buttons column">
-    <input type="radio"  v-model="companyFilter" value="all"  @click="sortByThing" checked="checked">all 
-    <input type="radio" v-model="companyFilter" value="Atlantsolía"  @click="sortByThing" checked>Atlantsolía
-    <input type="radio" v-model="companyFilter" value="Costco Iceland"  @click="sortByThing" checked>Costco
-    <input type="radio" v-model="companyFilter" value="Dælan" @click="sortByThing">Dælan
-    <input type="radio" v-model="companyFilter" value="N1" @click="sortByThing">N1
-    <input type="radio" v-model="companyFilter" value="Olís" @click="sortByThing">Olís
-    <input type="radio" v-model="companyFilter" value="ÓB" @click="sortByThing">ÓB
-    <input type="radio" v-model="companyFilter" value="Orkan"  @click="sortByThing" checked>Orkan
-    <input type="radio" v-model="companyFilter" value="Orkan X"  @click="sortByThing" checked>Orkan X
-    <input type="radio" v-model="companyFilter" value="Skeljungur"  @click="sortByThing" checked>Skeljungur
+    <input type="radio"  v-model="companyFilter" id="b1" value="all"  @click="sortByThing" checked="checked"><label for="b1">all</label> 
+    <input type="radio" v-model="companyFilter" id="b2" value="Atlantsolía"  @click="sortByThing" checked><label for="b2">Atlantsolía</label>
+    <input type="radio" v-model="companyFilter" id="b3" value="Costco Iceland"  @click="sortByThing" checked><label for="b3">Costco</label>
+    <input type="radio" v-model="companyFilter" id="b4" value="Dælan" @click="sortByThing"><label for="b4">Dælan</label>
+    <input type="radio" v-model="companyFilter" id="b5" value="N1" @click="sortByThing"><label for="b5">N1</label>
+    <input type="radio" v-model="companyFilter" id="b6" value="Olís" @click="sortByThing"><label for="b6">Olís</label>
+    <input type="radio" v-model="companyFilter" id="b7" value="ÓB" @click="sortByThing"><label for="b7">ÓB</label>
+    <input type="radio" v-model="companyFilter" id="b8" value="Orkan"  @click="sortByThing" checked><label for="b8">Orkan</label>
+    <input type="radio" v-model="companyFilter" id="b9" value="Orkan X"  @click="sortByThing" checked><label for="b9">Orkan X</label>
+    <input type="radio" v-model="companyFilter" id="b10" value="Skeljungur"  @click="sortByThing" checked><label for="b10">Skeljungur</label>
 
   </div>
   <p style="padding-left:30%;padding-bottom:11px;" v-text="'fjöldi stöðva: '+tempList.length"></p>
